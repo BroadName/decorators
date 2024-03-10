@@ -16,9 +16,6 @@ def logg(path):
 def logger(path):
 
     def __logger(old_function):
-        # почему так не работает? path по циклу меняется, но логи пишутся в один файл log_1.log
-        # logging.basicConfig(level=logging.INFO, filename=path, filemode='w',
-        #                    format="%(asctime)s %(levelname)s %(message)s")
         def new_function(*args, **kwargs):
             _logger = logg(path)
             _logger.info(old_function.__name__)
